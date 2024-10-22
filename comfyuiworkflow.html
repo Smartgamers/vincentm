@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>comfyuiworkflow</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    /* Add some basic styling to make the images look nice */
+    .image-container {
+      margin-bottom: 20px;
+      padding: 10px; /* Add some padding around the image container */
+    }
+    
+    .image-container img {
+      width: 115%;
+      height: auto;
+      display: block; /* Make the image a block element so it takes up the full width of its parent */
+    }
+    
+    .text-container {
+      text-align: center; /* Center the text */
+    }
+  </style>
+</head>
+<body>
+
+
+  
+  <!-- Create a container for your grid layout -->
+  <div class="container">
+    <div class="row"> <!-- Create the first row element -->
+      <!-- Create a simple array of image URLs and captions -->
+      <script>
+        const images = [
+          { "src": "assets/images/core_ai.png", "alt": "Image 1",  },
+          { "src": "assets/images/ipa_ai.png", "alt": "Image 2",  },
+          { "src": "assets/images/controlnet_ai.png", "alt": "Image 2",  },
+          { "src": "assets/images/latentimage_ai.png", "alt": "Image 2",  },
+          { "src": "assets/images/workflow_ai.png", "alt": "Image 2",  },
+
+        ];
+      
+      // Create the grid layout using a foreach loop
+      images.forEach((image, index) => {
+        const col = document.createElement("div");
+        col.classList.add("col-md-10");
+        
+        const imageContainer = document.createElement("div");
+        imageContainer.classList.add("image-container");
+        
+        const img = document.createElement("img");
+        img.src = image.src;
+        img.alt = image.alt;
+        imageContainer.appendChild(img);
+        
+        const textContainer = document.createElement("div");
+        textContainer.classList.add("text-container");
+        const p = document.createElement("p");
+        p.textContent = image.caption;
+        textContainer.appendChild(p);
+        
+        col.appendChild(imageContainer);
+        col.appendChild(textContainer);
+        
+        // Append the column to the current row
+        document.querySelector('.row').appendChild(col);
+      });
+    </script>
+  </div>
+</body>
+</html>
